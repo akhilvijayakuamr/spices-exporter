@@ -53,7 +53,7 @@ const Contact = () => {
                             <span className="icon">📍</span>
                             <div>
                                 <h4>Location</h4>
-                                <p>Kochi, Kerala, India - 682001</p>
+                                <p>Cumbummettu, Idukki, Kerala, India - 685552</p>
                             </div>
                         </div>
 
@@ -61,7 +61,7 @@ const Contact = () => {
                             <span className="icon">📧</span>
                             <div>
                                 <h4>Email</h4>
-                                <p>anandhu.raviexports@gmail.com</p>
+                                <p>anandhurf45@gmail.com</p>
                             </div>
                         </div>
 
@@ -69,7 +69,7 @@ const Contact = () => {
                             <span className="icon">📞</span>
                             <div>
                                 <h4>Phone</h4>
-                                <p>+91 98765 43210</p>
+                                <p>+91 9061229896</p>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/Hero.css';
-import profileImg from '../assets/spices_exporter_profile.png';
+import profileImg from '../assets/profile.jpeg';
 import cardamomImg from '../assets/cardamom_macro.png';
 
 const Hero = () => {
