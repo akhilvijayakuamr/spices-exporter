@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import '../styles/Contact.css';
 
 const Contact = () => {
+    const form = useRef();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -15,13 +17,23 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Simulate email sending
-        console.log("Sending email...", formData);
-        setTimeout(() => {
-            setSubmitted(true);
-            setFormData({ name: '', email: '', message: '' });
-            alert(`Thank you ${formData.name}! Your message has been sent to Anandhu P Ravi.`);
-        }, 1000);
+
+        // TODO: Replace with your actual EmailJS Service ID, Template ID, and Public Key
+        // Sign up at https://www.emailjs.com/ to get these.
+        const serviceId = 'YOUR_SERVICE_ID';
+        const templateId = 'YOUR_TEMPLATE_ID';
+        const publicKey = 'YOUR_PUBLIC_KEY';
+
+        emailjs.sendForm(serviceId, templateId, form.current, publicKey)
+            .then((result) => {
+                console.log(result.text);
+                setSubmitted(true);
+                setFormData({ name: '', email: '', message: '' });
+                alert(`Thank you ${formData.name}! Your message has been sent to Anandhu P Ravi.`);
+            }, (error) => {
+                console.log(error.text);
+                alert("Failed to send message. Please try again.");
+            });
     };
 
     return (
@@ -70,7 +82,7 @@ const Contact = () => {
                                 <button className="btn btn-outline mt-3" onClick={() => setSubmitted(false)}>Send Another</button>
                             </div>
                         ) : (
-                            <form className="contact-form" onSubmit={handleSubmit}>
+                            <form className="contact-form" ref={form} onSubmit={handleSubmit}>
                                 <div className="form-group">
                                     <label>Name</label>
                                     <input
